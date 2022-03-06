@@ -30,7 +30,7 @@ public class TestIsUnique {
 
     @Test
     public void testGetUrlfied() {
-        assert IsUnique.isPermutationUseArray("foobar", "barfoo");
-        assert !IsUnique.isPermutationUseArray("fooZbar", "barXfoo");
+        assert IsUnique.getUrlfied("foo bar      ".toCharArray(), 7).equals("foo%20bar    ");
+
     }
 }

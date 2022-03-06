@@ -59,8 +59,32 @@ public class IsUnique {
     }
 
     public static String getUrlfied(char[] str, int trueLength) {
+        int numberOfSpaces = getCharCount(str, 0, trueLength, ' ');
+        int newIndex = (trueLength - 1) + (numberOfSpaces * 2);
+        int oldIndex = trueLength - 1;
 
-        return "";
+        for (int i = oldIndex; i >= 0; i--) {
+            if (str[i] == ' ') {
+                str[newIndex--] = '0';
+                str[newIndex--] = '2';
+                str[newIndex--] = '%';
+            } else {
+                str[newIndex--] = str[i];
+            }
+        }
+
+
+        return String.valueOf(str);
+    }
+
+    public static int getCharCount(char[] str, int start, int length, char needle) {
+        int count = 0;
+        for (int i = start; i < length; i++) {
+            if (str[i] == needle) {
+                count++;
+            }
+        }
+        return count;
     }
 
     public static void main(String[] args) {
