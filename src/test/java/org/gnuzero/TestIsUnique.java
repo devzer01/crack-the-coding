@@ -48,4 +48,9 @@ public class TestIsUnique {
         assert IsUnique.isOneEditOrReplacement("good", "goo");
         assert !IsUnique.isOneEditOrReplacement("good", "doode");
     }
+
+    @Test
+    public void testCompress() {
+        assert IsUnique.compress("aaaabbcccc").equals("a4b2c4");
+    }
 }

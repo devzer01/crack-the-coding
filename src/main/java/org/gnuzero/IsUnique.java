@@ -162,6 +162,19 @@ public class IsUnique {
         return true;
     }
 
+    public static String compress(String s1) {
+        String compressed = "";
+        int amount = 0;
+        for (int i = 0; i < s1.length(); i++) {
+            amount++;
+            if (i + 1 >= s1.length() || s1.charAt(i) != s1.charAt(i + 1)) {
+                compressed += "" + s1.charAt(i) + amount;
+                amount = 0;
+            }
+        }
+        return compressed;
+    }
+
     public static void main(String[] args) {
         if (isPermutation("fooxbar", "barzfoo")) {
             System.out.println("is permutation");
