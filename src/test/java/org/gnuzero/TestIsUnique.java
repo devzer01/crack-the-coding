@@ -31,6 +31,12 @@ public class TestIsUnique {
     @Test
     public void testGetUrlfied() {
         assert IsUnique.getUrlfied("foo bar      ".toCharArray(), 7).equals("foo%20bar    ");
+    }
 
+    @Test
+    public void testIsPalindrome() {
+        assert IsUnique.isPalindrome("foooof");
+        assert IsUnique.isPalindrome("foogoof");
+        assert !IsUnique.isPalindrome("foolof");
     }
 }

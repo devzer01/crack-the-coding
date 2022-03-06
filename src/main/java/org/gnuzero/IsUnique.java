@@ -1,6 +1,8 @@
 package org.gnuzero;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class IsUnique {
     public static boolean isUniqueChars(String s) {
@@ -85,6 +87,38 @@ public class IsUnique {
             }
         }
         return count;
+    }
+
+    public static boolean isPalindrome(String str) {
+        Map<Character, Integer> counts = new HashMap<>();
+        for (int i = 0 ; i < str.length(); i++) {
+            if (counts.containsKey(str.charAt(i))) {
+                int val = counts.get(str.charAt(i));
+                val += 1;
+                counts.put(str.charAt(i), val);
+            } else {
+                counts.put(str.charAt(i), 1);
+            }
+        }
+
+        boolean isOdd = (str.length() % 2 == 1);
+        int numEven = 0;
+        int numOdd = 0;
+        for (Map.Entry<Character, Integer> item : counts.entrySet()) {
+            if (item.getValue() % 2 == 0) {
+                numEven += 1;
+            } else {
+                numOdd += 1;
+            }
+        }
+
+        if (isOdd && numOdd == 1) {
+            return true;
+        } else if (!isOdd && numOdd == 0){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static void main(String[] args) {
