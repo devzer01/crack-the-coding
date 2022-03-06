@@ -39,4 +39,13 @@ public class TestIsUnique {
         assert IsUnique.isPalindrome("foogoof");
         assert !IsUnique.isPalindrome("foolof");
     }
+
+    //isOneEditOrReplacement
+    @Test
+    public void testIsOneEditOrReplacement() {
+        assert IsUnique.isOneEditOrReplacement("good", "dood");
+        assert IsUnique.isOneEditOrReplacement("good", "goode");
+        assert IsUnique.isOneEditOrReplacement("good", "goo");
+        assert !IsUnique.isOneEditOrReplacement("good", "doode");
+    }
 }
